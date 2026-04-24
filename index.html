@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>David Moya Garcia — Cybersecurity & AI Projects</title>
+<meta name="description" content="Portfolio de proyectos de ciberseguridad e inteligencia artificial. MalwareIntel, st4rtup, Autonomous Design, Cyber Repo Radar y mas."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#070910;--surface:#0c0f14;--surface2:#152035;--border:#1e2a42;--fg:#e2e8f0;--fg-muted:#94a3b8;--cyan:#06b6d4;--purple:#c084fc;--green:#34d399;--amber:#fbbf24;--red:#fb7185;--blue:#38bdf8;--lime:#a3e635}
+html{color-scheme:dark;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;overflow-x:hidden}
+.mono{font-family:'IBM Plex Mono',monospace}
+a{color:inherit;text-decoration:none}
+::selection{background:rgba(6,182,212,.3)}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--surface)}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+
+/* Animations */
+.reveal{opacity:0;transform:translateY(25px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:.08s}.reveal-d2{transition-delay:.16s}.reveal-d3{transition-delay:.24s}
+.reveal-d4{transition-delay:.32s}.reveal-d5{transition-delay:.4s}.reveal-d6{transition-delay:.48s}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(15px,-15px)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+.scanlines{position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.02;background-image:repeating-linear-gradient(0deg,transparent,transparent 1px,rgba(255,255,255,.02) 1px,rgba(255,255,255,.02) 2px);background-size:100% 2px}
+
+/* Nav */
+.nav{border-bottom:1px solid rgba(30,42,66,.3);background:rgba(7,9,16,.85);backdrop-filter:blur(12px);position:sticky;top:0;z-index:40;transition:box-shadow .3s}
+.nav.scrolled{box-shadow:0 4px 30px rgba(0,0,0,.5)}
+.nav-inner{max-width:72rem;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:3.5rem;padding:0 1.5rem}
+.nav-name{font-weight:700;font-size:.875rem;letter-spacing:.03em}
+.nav-name span{color:var(--cyan)}
+.nav-links{display:flex;align-items:center;gap:.75rem}
+.nav-link{font-size:.7rem;color:var(--fg-muted);transition:color .2s;padding:.25rem .5rem}
+.nav-link:hover{color:var(--fg)}
+.btn-coffee{font-size:.7rem;font-weight:700;padding:.375rem .75rem;border-radius:.375rem;background:rgba(251,191,36,.12);color:var(--amber);border:1px solid rgba(251,191,36,.25);transition:all .2s;display:inline-flex;align-items:center;gap:.375rem}
+.btn-coffee:hover{background:rgba(251,191,36,.2);transform:translateY(-1px)}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;padding:6rem 1.5rem 4rem;text-align:center}
+.hero-glow{position:absolute;width:450px;height:450px;border-radius:50%;filter:blur(120px);animation:float 8s ease-in-out infinite}
+.hero-avatar{width:96px;height:96px;border-radius:50%;border:3px solid var(--cyan);margin:0 auto 1.5rem;background:var(--surface2);display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:700;color:var(--cyan);animation:fadeUp .6s ease both}
+.hero h1{font-size:clamp(1.75rem,4vw,2.75rem);font-weight:700;line-height:1.15;margin-bottom:.75rem;animation:fadeUp .7s ease .1s both}
+.hero h1 span{color:var(--cyan)}
+.hero p{font-size:.95rem;color:var(--fg-muted);line-height:1.7;max-width:36rem;margin:0 auto 1.5rem;animation:fadeUp .7s ease .2s both}
+.hero-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;animation:fadeUp .7s ease .3s both}
+.hero-tag{padding:.25rem .625rem;border-radius:9999px;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;border:1px solid rgba(6,182,212,.2);background:rgba(6,182,212,.06);color:var(--cyan)}
+.hero-links{display:flex;justify-content:center;gap:.75rem;margin-top:1.5rem;animation:fadeUp .7s ease .4s both}
+.hero-social{width:36px;height:36px;border-radius:.5rem;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--fg-muted);transition:all .2s}
+.hero-social:hover{color:var(--fg);border-color:var(--cyan);background:rgba(6,182,212,.08);transform:translateY(-2px)}
+.hero-social svg{width:18px;height:18px}
+
+/* Projects */
+.section{max-width:72rem;margin:0 auto;padding:4rem 1.5rem}
+.section-alt{border-top:1px solid rgba(30,42,66,.3);border-bottom:1px solid rgba(30,42,66,.3);background:rgba(12,15,20,.15)}
+.section-title{font-size:1.5rem;font-weight:700;margin-bottom:.5rem;text-align:center}
+.section-title span{color:var(--cyan)}
+.section-desc{color:var(--fg-muted);max-width:32rem;margin:0 auto 2.5rem;text-align:center;font-size:.875rem}
+
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1rem}
+.project-card{padding:1.25rem;border-radius:.75rem;border:1px solid rgba(30,42,66,.3);background:rgba(12,15,20,.3);transition:all .3s;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.project-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;opacity:0;transition:opacity .3s}
+.project-card:hover{background:rgba(12,15,20,.6);transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.3)}
+.project-card:hover::after{opacity:.6}
+.project-header{display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem;margin-bottom:.5rem}
+.project-name{font-weight:700;font-size:.95rem}
+.project-status{font-size:9px;padding:2px 8px;border-radius:9999px;font-weight:600;text-transform:uppercase;letter-spacing:.03em;white-space:nowrap;flex-shrink:0}
+.status-live{background:rgba(52,211,153,.12);color:var(--green);border:1px solid rgba(52,211,153,.2)}
+.status-dev{background:rgba(251,191,36,.12);color:var(--amber);border:1px solid rgba(251,191,36,.2)}
+.status-beta{background:rgba(56,189,248,.12);color:var(--blue);border:1px solid rgba(56,189,248,.2)}
+.project-desc{font-size:.75rem;color:var(--fg-muted);line-height:1.5;margin-bottom:.75rem;flex:1}
+.project-tags{display:flex;flex-wrap:wrap;gap:.375rem;margin-bottom:.75rem}
+.project-tag{font-size:9px;padding:2px 6px;border-radius:3px;background:rgba(30,42,66,.4);color:var(--fg-muted)}
+.project-links{display:flex;gap:.5rem;margin-top:auto}
+.project-link{font-size:.7rem;padding:.375rem .625rem;border-radius:.375rem;border:1px solid rgba(30,42,66,.4);color:var(--fg-muted);transition:all .2s;display:inline-flex;align-items:center;gap:.25rem}
+.project-link:hover{color:var(--fg);border-color:var(--cyan);background:rgba(6,182,212,.06)}
+.project-link svg{width:12px;height:12px}
+
+/* Stats */
+.stats-bar{border-top:1px solid rgba(30,42,66,.3);border-bottom:1px solid rgba(30,42,66,.3);background:rgba(12,15,20,.2)}
+.stats-grid{max-width:72rem;margin:0 auto;padding:2rem 1.5rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;text-align:center}
+.stat-val{font-size:1.75rem;font-weight:700;margin-bottom:.125rem}
+.stat-lbl{font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--fg-muted)}
+
+/* Footer */
+.footer{border-top:1px solid rgba(30,42,66,.2);padding:2rem 0;background:rgba(12,15,20,.1)}
+.footer-inner{max-width:72rem;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;font-size:10px;color:rgba(148,163,184,.4)}
+.footer-inner a{color:var(--cyan);transition:opacity .2s}
+.footer-inner a:hover{opacity:.7}
+
+@media(max-width:768px){
+  .projects-grid{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-inner{flex-direction:column;gap:.5rem}
+}
+</style>
+</head>
+<body>
+<div class="scanlines"></div>
+
+<!-- Nav -->
+<header class="nav" id="nav">
+<nav class="nav-inner">
+  <span class="mono nav-name">pedri77<span>.github.io</span></span>
+  <div class="nav-links">
+    <a href="#projects" class="mono nav-link">Projects</a>
+    <a href="https://github.com/pedri77" target="_blank" class="mono nav-link">GitHub</a>
+    <a href="https://linkedin.com/in/davidmoyagarcia" target="_blank" class="mono nav-link">LinkedIn</a>
+    <a href="https://buymeacoffee.com/pedri77" target="_blank" class="mono btn-coffee">&#9829; Coffee</a>
+  </div>
+</nav>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+<div class="hero-glow" style="top:-200px;left:-100px;background:rgba(6,182,212,.04)"></div>
+<div class="hero-glow" style="bottom:-200px;right:-100px;background:rgba(192,132,252,.03);animation-delay:4s"></div>
+
+<div class="hero-avatar mono">DM</div>
+<h1 class="mono">David Moya <span>Garcia</span></h1>
+<p>Founder & CTO en Riskitera S.L.U. Construyo plataformas de ciberseguridad e inteligencia artificial para equipos que protegen organizaciones.</p>
+<div class="hero-tags mono">
+  <span class="hero-tag">GRC / SOC / CTI</span>
+  <span class="hero-tag">FastAPI</span>
+  <span class="hero-tag">Next.js</span>
+  <span class="hero-tag">LangGraph</span>
+  <span class="hero-tag">ENS Alto</span>
+  <span class="hero-tag">Self-hosted AI</span>
+</div>
+<div class="hero-links">
+  <a href="https://github.com/pedri77" target="_blank" class="hero-social" title="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg></a>
+  <a href="https://linkedin.com/in/davidmoyagarcia" target="_blank" class="hero-social" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+  <a href="mailto:david@riskitera.com" class="hero-social" title="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+  <a href="https://riskitera.com" target="_blank" class="hero-social" title="Riskitera"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></a>
+</div>
+</section>
+
+<!-- Stats -->
+<section class="stats-bar">
+<div class="stats-grid">
+  <div class="reveal"><div class="mono stat-val" style="color:var(--cyan)">10+</div><div class="mono stat-lbl">Projects</div></div>
+  <div class="reveal reveal-d1"><div class="mono stat-val" style="color:var(--green)">6</div><div class="mono stat-lbl">Live</div></div>
+  <div class="reveal reveal-d2"><div class="mono stat-val" style="color:var(--purple)">4</div><div class="mono stat-lbl">Domains</div></div>
+  <div class="reveal reveal-d3"><div class="mono stat-val" style="color:var(--amber)">1</div><div class="mono stat-lbl">Company</div></div>
+</div>
+</section>
+
+<!-- Projects -->
+<section class="section" id="projects">
+<h2 class="mono section-title reveal"><span>Proyectos</span> activos</h2>
+<p class="section-desc reveal reveal-d1">Plataformas de ciberseguridad, educacion y automatizacion con IA.</p>
+
+<div class="projects-grid" id="projects-grid"></div>
+</section>
+
+<!-- Open Source -->
+<section class="section-alt">
+<div class="section" style="padding-top:4rem;padding-bottom:4rem">
+<h2 class="mono section-title reveal">Open Source & <span>Tools</span></h2>
+<p class="section-desc reveal reveal-d1">Herramientas publicas de ciberseguridad y utilidades.</p>
+<div class="projects-grid" id="oss-grid"></div>
+</div>
+</section>
+
+<!-- CTA -->
+<section style="border-top:1px solid rgba(30,42,66,.3);position:relative;overflow:hidden">
+<div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(6,182,212,.02),transparent)"></div>
+<div style="max-width:72rem;margin:0 auto;padding:4rem 1.5rem;text-align:center;position:relative;z-index:10" class="reveal">
+  <h2 class="mono" style="font-size:1.375rem;font-weight:700;margin-bottom:.75rem">Interested in collaborating?</h2>
+  <p style="color:var(--fg-muted);font-size:.875rem;max-width:28rem;margin:0 auto 1.5rem">Security platforms, AI automation, or open-source tools. Let's build something useful.</p>
+  <div style="display:flex;justify-content:center;gap:.75rem;flex-wrap:wrap">
+    <a href="mailto:david@riskitera.com" class="mono project-link" style="padding:.5rem 1rem;font-size:.8rem">david@riskitera.com</a>
+    <a href="https://buymeacoffee.com/pedri77" target="_blank" class="mono btn-coffee" style="font-size:.8rem;padding:.5rem 1rem">&#9829; Buy me a coffee</a>
+  </div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+<div class="footer-inner mono">
+  <span>&copy; 2026 David Moya Garcia &middot; <a href="https://riskitera.com" target="_blank">Riskitera S.L.U.</a></span>
+  <span>Built with precision in ES</span>
+</div>
+</footer>
+
+<script>
+var PROJECTS = [
+  {
+    name: 'Riskitera',
+    desc: 'Plataforma GRC/SOC/CTI B2B para enterprises reguladas. Multi-tenant, ENS Alto, agentes IA self-hosted.',
+    color: 'var(--cyan)',
+    status: 'live', statusLabel: 'Live',
+    tags: ['FastAPI', 'Next.js', 'Supabase', 'LangGraph', 'ENS Alto'],
+    links: [{ label: 'Web', url: 'https://riskitera.com' }, { label: 'Demo', url: 'https://demo.riskitera.com' }]
+  },
+  {
+    name: 'MalwareIntel',
+    desc: 'Plataforma de threat intelligence con knowledge graph, MITRE ATT&CK mapping, IOC search y 13+ feeds CTI publicos.',
+    color: 'var(--purple)',
+    status: 'dev', statusLabel: 'Dev',
+    tags: ['FastAPI', 'Next.js', 'Qdrant', 'STIX 2.1', 'D3FEND'],
+    links: [{ label: 'Landing', url: 'https://malwareintel.pages.dev/landing/' }]
+  },
+  {
+    name: 'st4rtup.com',
+    desc: 'Academy para founders. Primer curso: "Productividad con IA para founders". Multi-tenant, admin panel, Stripe.',
+    color: 'var(--green)',
+    status: 'live', statusLabel: 'Live',
+    tags: ['Next.js', 'FastAPI', 'Supabase', 'Stripe', 'Bunny.net'],
+    links: [{ label: 'Web', url: 'https://st4rtup.com' }]
+  },
+  {
+    name: 'Autonomous Design',
+    desc: 'Generador autonomo de disenos web con IA. Audit de seguridad y UX completados.',
+    color: 'var(--blue)',
+    status: 'live', statusLabel: 'Live',
+    tags: ['Next.js', 'AI Generation', 'CF Pages'],
+    links: [{ label: 'Web', url: 'https://autonomousdesing.com' }]
+  },
+  {
+    name: 'Cyber Repo Radar',
+    desc: 'Radar semanal automatizado de 20 repos de ciberseguridad en GitHub. Scan, digest IA y distribucion multi-canal.',
+    color: 'var(--cyan)',
+    status: 'live', statusLabel: 'Live',
+    tags: ['n8n', 'Qwen3.5-27B', 'GitHub API', 'YouTube', 'Telegram'],
+    links: [{ label: 'Dashboard', url: 'https://cyber-repo-radar.pages.dev' }, { label: 'GitHub', url: 'https://github.com/pedri77/cyber-repo-radar', icon: 'gh' }]
+  },
+  {
+    name: 'Empresa Automatizada',
+    desc: 'Suite de automatizacion empresarial con agentes IA. 105 tests, 35 rutas dashboard, 50 modelos, 106 endpoints.',
+    color: 'var(--amber)',
+    status: 'beta', statusLabel: 'Beta',
+    tags: ['FastAPI', 'Next.js', 'YAML Prompts', '8 ADRs'],
+    links: []
+  },
+  {
+    name: 'Trigr',
+    desc: 'B2B sales signal radar. 5 agentes LangGraph para deteccion de senales de compra. Production ready.',
+    color: 'var(--red)',
+    status: 'dev', statusLabel: 'Dev',
+    tags: ['FastAPI', 'Next.js', 'LangGraph', 'PostgreSQL'],
+    links: []
+  },
+  {
+    name: 'Synthcast v3.0',
+    desc: 'Pipeline de produccion de video con IA. Viral script engine, Hedra lip-sync, distribucion multi-plataforma.',
+    color: 'var(--amber)',
+    status: 'dev', statusLabel: 'Dev',
+    tags: ['AI Video', 'Hedra', 'TTS', 'HITL'],
+    links: []
+  },
+];
+
+var OSS = [
+  {
+    name: 'EDR Visual App',
+    desc: 'Visualizador interactivo de Endpoint Detection & Response para demos y formacion.',
+    color: 'var(--green)',
+    status: 'live', statusLabel: 'Public',
+    tags: ['React', 'Visualization', 'EDR'],
+    links: [{ label: 'GitHub', url: 'https://github.com/pedri77/edr-visual-app', icon: 'gh' }]
+  },
+  {
+    name: 'SASE Visual App',
+    desc: 'Visualizador interactivo de arquitectura SASE para demos y formacion.',
+    color: 'var(--cyan)',
+    status: 'live', statusLabel: 'Public',
+    tags: ['React', 'Visualization', 'SASE'],
+    links: [{ label: 'GitHub', url: 'https://github.com/pedri77/sase-visual-app', icon: 'gh' }]
+  },
+  {
+    name: 'KEV Dashboard',
+    desc: 'Dashboard de CISA Known Exploited Vulnerabilities con Streamlit.',
+    color: 'var(--red)',
+    status: 'live', statusLabel: 'Public',
+    tags: ['Python', 'Streamlit', 'CISA KEV'],
+    links: [{ label: 'GitHub', url: 'https://github.com/pedri77/kev_dash_project', icon: 'gh' }]
+  },
+  {
+    name: 'OSM IOC Hub',
+    desc: 'Hub de indicadores de compromiso para operaciones de seguridad.',
+    color: 'var(--amber)',
+    status: 'live', statusLabel: 'Public',
+    tags: ['Python', 'IOC', 'OSINT'],
+    links: [{ label: 'GitHub', url: 'https://github.com/pedri77/osm-ioc-hub', icon: 'gh' }]
+  },
+  {
+    name: 'Ruta Ciberseguridad e IA',
+    desc: 'Guia de ruta profesional en ciberseguridad e inteligencia artificial.',
+    color: 'var(--purple)',
+    status: 'live', statusLabel: 'Public',
+    tags: ['Education', 'Career Path'],
+    links: [{ label: 'GitHub', url: 'https://github.com/pedri77/ruta-ciberseguridad-e-IA', icon: 'gh' }]
+  },
+  {
+    name: 'Proveedores ENS Alto',
+    desc: 'Directorio de proveedores certificados ENS Alto para administraciones publicas.',
+    color: 'var(--blue)',
+    status: 'live', statusLabel: 'Public',
+    tags: ['ENS', 'Compliance', 'Directory'],
+    links: [{ label: 'GitHub', url: 'https://github.com/pedri77/providors_high_ENS', icon: 'gh' }]
+  },
+];
+
+function renderCards(data, containerId) {
+  var grid = document.getElementById(containerId);
+  data.forEach(function(p, i) {
+    var card = document.createElement('div');
+    card.className = 'project-card reveal';
+    card.style.transitionDelay = (i * .08) + 's';
+    card.style.setProperty('--card-color', p.color);
+    card.querySelector; // force layout
+    card.innerHTML =
+      '<style>.project-card:hover::after{background:' + p.color + '}</style>' +
+      '<div class="project-header">' +
+        '<span class="mono project-name" style="color:' + p.color + '">' + p.name + '</span>' +
+        '<span class="mono project-status status-' + p.status + '">' + p.statusLabel + '</span>' +
+      '</div>' +
+      '<div class="project-desc">' + p.desc + '</div>' +
+      '<div class="project-tags mono">' + p.tags.map(function(t) { return '<span class="project-tag">' + t + '</span>'; }).join('') + '</div>' +
+      (p.links.length ? '<div class="project-links mono">' + p.links.map(function(l) {
+        var icon = l.icon === 'gh'
+          ? '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>'
+          : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>';
+        return '<a href="' + l.url + '" target="_blank" class="project-link">' + icon + ' ' + l.label + '</a>';
+      }).join('') + '</div>' : '');
+    grid.appendChild(card);
+  });
+}
+
+renderCards(PROJECTS, 'projects-grid');
+renderCards(OSS, 'oss-grid');
+
+// Scroll reveal
+var obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+  });
+}, { threshold: .1, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
+
+// Nav shadow
+window.addEventListener('scroll', function() {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+}, { passive: true });
+</script>
+</body>
+</html>
