@@ -1,7 +1,7 @@
 <h1 align="center">pedri77.github.io</h1>
 
 <p align="center">
-  <strong>David Moya Garcia — Portfolio of cybersecurity and AI projects.</strong>
+  <strong>David Moya García — Portfolio of cybersecurity and AI projects.</strong>
 </p>
 
 <p align="center">
