@@ -30,6 +30,44 @@
 @font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/JetBrainsMono-700-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF;}
 @font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/JetBrainsMono-700-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
 @font-face{font-family:'Inter Tight';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/InterTight-700-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+
+/* ---------- Cierre: franja CTA + footer (patrón «footer de cierre» de web-cinematica) ---------- */
+.cierre-cta{position:relative;overflow:hidden;border-top:1px solid rgba(30,45,74,.35);padding:7rem 1.5rem 6rem;text-align:center;isolation:isolate}
+.cierre-cta::before{content:'';position:absolute;inset:0;z-index:-1;background:radial-gradient(50% 60% at 50% 0%,rgba(6,182,212,.13),transparent 70%),radial-gradient(30% 40% at 80% 100%,rgba(192,132,252,.06),transparent 70%)}
+.cierre-trazos{position:absolute;inset:auto 0 0 0;width:100%;height:70%;z-index:-1;opacity:.5;pointer-events:none}
+.cierre-trazos path{fill:none;stroke-width:1;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 2.4s cubic-bezier(.16,1,.3,1)}
+.cierre-cta.dentro .cierre-trazos path{stroke-dashoffset:0}
+.cierre-ante{font-size:.7rem;letter-spacing:.28em;color:var(--cyan);text-transform:uppercase}
+.cierre-titulo{font-family:'Inter Tight','IBM Plex Sans',sans-serif;font-weight:700;font-size:clamp(2.4rem,6.2vw,4.75rem);line-height:1.02;letter-spacing:-.02em;margin:1.1rem auto 1.25rem;max-width:16ch;text-wrap:balance}
+.cierre-titulo em{font-style:normal;background:linear-gradient(90deg,var(--cyan),var(--blue) 55%,var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent}
+.cierre-texto{color:var(--fg-muted);font-size:1rem;line-height:1.6;max-width:32rem;margin:0 auto 2.25rem}
+.cierre-botones{display:flex;justify-content:center;gap:.75rem;flex-wrap:wrap}
+.btn-claro{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.4rem;border-radius:999px;background:var(--fg);color:var(--bg);font-size:.85rem;font-weight:600;transition:transform .25s,box-shadow .25s}
+.btn-claro:hover{transform:translateY(-2px);box-shadow:0 10px 30px -10px rgba(6,182,212,.55)}
+.btn-borde{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.3rem;border-radius:999px;border:1px solid rgba(148,163,184,.2);color:var(--fg-muted);font-size:.8rem;transition:color .2s,border-color .2s}
+.btn-borde:hover{color:var(--fg);border-color:rgba(6,182,212,.45)}
+.pie{position:relative;overflow:hidden;border-top:1px solid rgba(30,45,74,.35);background:linear-gradient(to bottom,rgba(11,14,22,.6),var(--bg))}
+.pie-rejilla{max-width:72rem;margin:0 auto;padding:4.5rem 1.5rem 2rem;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:2.5rem}
+.pie-marca{font-size:.95rem;font-weight:700;color:var(--fg)}
+.pie-marca span{color:var(--cyan)}
+.pie-lema{color:var(--fg-muted);font-size:.875rem;line-height:1.6;margin:.9rem 0 1.4rem;max-width:22rem}
+.pie-redes{display:flex;gap:.6rem}
+.pie-redes a{width:42px;height:42px;border-radius:50%;border:1px solid rgba(148,163,184,.18);display:grid;place-items:center;color:var(--fg-muted);transition:color .2s,border-color .2s,transform .2s}
+.pie-redes a:hover{color:var(--cyan);border-color:rgba(6,182,212,.45);transform:translateY(-2px)}
+.pie-redes svg{width:17px;height:17px}
+.pie-col h3{font-size:.65rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:rgba(148,163,184,.55);margin-bottom:1.1rem}
+.pie-col ul{list-style:none;display:grid;gap:.7rem}
+.pie-col a{font-size:.875rem;color:rgba(226,232,240,.75);transition:color .2s}
+.pie-col a:hover{color:var(--cyan)}
+.pie-wordmark{position:relative;max-width:80rem;margin:0 auto;padding:0 1rem;font-family:'Inter Tight','IBM Plex Sans',sans-serif;font-weight:700;font-size:clamp(5rem,23vw,21rem);line-height:.78;letter-spacing:-.05em;text-align:center;white-space:nowrap;user-select:none;height:.62em;overflow:hidden}
+.pie-wordmark span{display:inline-block;--luz:0;background-image:linear-gradient(to bottom,rgba(6,182,212,calc(var(--luz)*.6)),transparent 80%),linear-gradient(to bottom,rgba(226,232,240,.085),transparent 80%);-webkit-background-clip:text;background-clip:text;color:transparent;will-change:transform}
+.pie-barra{border-top:1px solid rgba(30,45,74,.35);max-width:72rem;margin:0 auto;padding:1.4rem 1.5rem 1.6rem;display:flex;justify-content:space-between;gap:1rem;font-size:.75rem;color:rgba(148,163,184,.55)}
+.pie-barra a{color:rgba(6,182,212,.7)}
+.pie-barra a:hover{color:var(--cyan)}
+.pie-barra .mono{letter-spacing:.2em;text-transform:uppercase;font-size:.65rem}
+@media(max-width:860px){.pie-rejilla{grid-template-columns:1fr 1fr}.pie-col-marca{grid-column:1/-1}}
+@media(max-width:480px){.pie-rejilla{grid-template-columns:1fr}.pie-barra{flex-direction:column}.cierre-cta{padding:5rem 1.25rem 4.5rem}}
+@media(prefers-reduced-motion:reduce){.cierre-trazos path{transition:none;stroke-dashoffset:0}}
 </style>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -174,23 +212,12 @@ a{color:inherit;text-decoration:none}
 .project-link svg{width:12px;height:12px;position:relative;z-index:1}
 
 /* CTA */
-.cta-section{border-top:1px solid rgba(30,45,74,.2);position:relative;overflow:hidden}
-.cta-glow{position:absolute;inset:0;background:linear-gradient(to top,rgba(6,182,212,.03),transparent)}
-.cta-orb{position:absolute;border-radius:50%;filter:blur(100px);animation:float 8s ease-in-out infinite}
-.cta-inner{max-width:72rem;margin:0 auto;padding:5rem 1.5rem;text-align:center;position:relative;z-index:10}
 .cta-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.625rem 1.5rem;border-radius:.5rem;font-size:.8rem;font-weight:600;border:1px solid rgba(30,45,74,.4);color:var(--fg-muted);transition:all .3s;cursor:pointer;position:relative;overflow:hidden}
 .cta-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(6,182,212,.06),transparent);opacity:0;transition:opacity .3s}
 .cta-btn:hover{color:var(--fg);border-color:rgba(6,182,212,.3);transform:translateY(-2px);box-shadow:var(--glow-sm) rgba(6,182,212,.1)}
 .cta-btn:hover::before{opacity:1}
 
 /* Footer */
-.footer{border-top:1px solid rgba(30,45,74,.15);padding:2rem 0;background:rgba(6,8,16,.5)}
-.footer-inner{max-width:72rem;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;font-size:10px;color:rgba(148,163,184,.35)}
-.footer-inner a{color:rgba(6,182,212,.5);transition:color .2s}
-.footer-inner a:hover{color:var(--cyan)}
-.footer-projects{max-width:72rem;margin:.625rem auto 0;padding:0 1.5rem .25rem;display:flex;flex-wrap:wrap;justify-content:center;gap:.375rem 1.25rem}
-.footer-projects a{font-size:10px;color:rgba(6,182,212,.5);transition:color .2s;display:inline-flex;align-items:center;gap:.3rem;white-space:nowrap}
-.footer-projects a:hover{color:var(--cyan)}
 
 /* 21st.dev-inspired effects — vanilla recreations, zero deps */
 @property --beam-angle{syntax:'<angle>';initial-value:0deg;inherits:false}
@@ -239,7 +266,6 @@ a{color:inherit;text-decoration:none}
   .nav-social{display:none}
   .stats-grid{grid-template-columns:repeat(2,1fr)}
   .stat-item::after{display:none}
-  .footer-inner{flex-direction:column;gap:.5rem}
   .hero-ring{display:none}
   .nav-links{gap:.25rem}
   .nav-link{font-size:.65rem;padding:.25rem .375rem}
@@ -359,40 +385,65 @@ a{color:inherit;text-decoration:none}
 </section>
 
 <!-- CTA -->
-<section class="cta-section" id="contacto">
-<div class="cta-glow"></div>
-<div class="cta-orb" style="top:-60px;left:20%;width:250px;height:250px;background:rgba(6,182,212,.03)"></div>
-<div class="cta-orb" style="bottom:-80px;right:15%;width:200px;height:200px;background:rgba(192,132,252,.02);animation-delay:3s"></div>
-<div class="cta-inner reveal">
-  <h2 class="mono" style="font-size:1.375rem;font-weight:700;margin-bottom:.75rem">Interested in collaborating?</h2>
-  <p style="color:var(--fg-muted);font-size:.875rem;max-width:28rem;margin:0 auto 1.75rem;line-height:1.6">Security platforms, AI automation, or open-source tools. Let's build something useful.</p>
-  <div style="display:flex;justify-content:center;gap:.75rem;flex-wrap:wrap">
-    <a href="mailto:info@iacedemy.com" class="mono cta-btn">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-      info@iacedemy.com
-    </a>
-    <a href="https://buymeacoffee.com/pedri77" target="_blank" class="mono btn-coffee" style="font-size:.8rem;padding:.625rem 1.25rem">&#9829; Buy me a coffee</a>
-    <a href="https://pedri77.github.io/riskitera-pitch-deck/" target="_blank" class="mono nav-link" style="font-size:.75rem;padding:.5rem .875rem;border:1px solid rgba(148,163,184,.15);border-radius:6px;color:var(--fg-muted);display:inline-flex;align-items:center;gap:.375rem;transition:color .2s,border-color .2s" onmouseover="this.style.color='var(--cyan)';this.style.borderColor='rgba(6,182,212,.3)'" onmouseout="this.style.color='var(--fg-muted)';this.style.borderColor='rgba(148,163,184,.15)'">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-      Pitch Deck
-    </a>
-  </div>
+<section class="cierre-cta" id="contacto">
+<svg class="cierre-trazos" viewBox="0 0 1440 260" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M-20 60 C 240 42, 480 78, 720 60 S 1200 42, 1460 60" stroke="rgba(6,182,212,0.35)" style="transition-delay:0.00s"/><path pathLength="1" d="M-20 86 C 240 64, 480 108, 720 86 S 1200 64, 1460 86" stroke="rgba(56,189,248,0.32)" style="transition-delay:0.12s"/><path pathLength="1" d="M-20 112 C 240 86, 480 138, 720 112 S 1200 86, 1460 112" stroke="rgba(6,182,212,0.29)" style="transition-delay:0.24s"/><path pathLength="1" d="M-20 138 C 240 108, 480 168, 720 138 S 1200 108, 1460 138" stroke="rgba(56,189,248,0.26)" style="transition-delay:0.36s"/><path pathLength="1" d="M-20 164 C 240 130, 480 198, 720 164 S 1200 130, 1460 164" stroke="rgba(6,182,212,0.23)" style="transition-delay:0.48s"/><path pathLength="1" d="M-20 190 C 240 152, 480 228, 720 190 S 1200 152, 1460 190" stroke="rgba(56,189,248,0.20)" style="transition-delay:0.60s"/><path pathLength="1" d="M-20 216 C 240 174, 480 258, 720 216 S 1200 174, 1460 216" stroke="rgba(6,182,212,0.17)" style="transition-delay:0.72s"/></svg>
+<p class="mono cierre-ante">Open to collaborate</p>
+<h2 class="cierre-titulo">Let's build something <em>secure.</em></h2>
+<p class="cierre-texto">Security platforms, AI automation and open-source tools. Tell me what you are working on.</p>
+<div class="cierre-botones">
+  <a href="mailto:info@iacedemy.com" class="btn-claro"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="M3 6.5l9 6.5 9-6.5"/></svg> info@iacedemy.com</a>
+  <a href="https://pedri77.github.io/riskitera-pitch-deck/" target="_blank" class="mono btn-borde">Pitch deck &rarr;</a>
+  <a href="https://buymeacoffee.com/pedri77" target="_blank" class="mono btn-coffee" style="font-size:.8rem;padding:.75rem 1.25rem;border-radius:999px">&#9829; Buy me a coffee</a>
 </div>
 </section>
 
 <!-- Footer -->
-<footer class="footer">
-<div class="footer-inner mono">
-  <span>&copy; 2026 David Moya García &middot; <a href="https://riskitera.com" target="_blank"><svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:10px;height:10px;vertical-align:-1px;display:inline"><path d="M16 2L4 7v8c0 7.73 5.12 14.95 12 17 6.88-2.05 12-9.27 12-17V7L16 2z" stroke="#3b82f6" stroke-width="2" fill="none"/><path d="M12 16l3 3 5-6" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> Riskitera</a></span>
-  <span>Built with precision in ES</span>
+<footer class="pie">
+<div class="pie-rejilla">
+  <div class="pie-col-marca">
+    <p class="mono pie-marca">pedri77<span>.github.io</span></p>
+    <p class="pie-lema">David Moya García. Founder &amp; CTO at Riskitera. Cybersecurity and AI platforms, built and shipped from Spain.</p>
+    <div class="pie-redes">
+      <a href="https://github.com/pedri77" target="_blank" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg></a>
+      <a href="https://www.linkedin.com/in/david-moya-b3a77547" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+      <a href="https://www.youtube.com/@cibercuriosos" target="_blank" aria-label="YouTube · Cibercuriosos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9.5v5l4.5-2.5z" fill="currentColor" stroke="none"/></svg></a>
+      <a href="mailto:info@iacedemy.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="M3 6.5l9 6.5 9-6.5"/></svg></a>
+    </div>
+  </div>
+  <nav class="pie-col" aria-label="Platforms">
+    <h3 class="mono">Platforms</h3>
+    <ul>
+      <li><a href="https://riskitera.com" target="_blank">Riskitera</a></li>
+      <li><a href="https://malwareintel.es" target="_blank">MalwareIntel</a></li>
+      <li><a href="https://iacedemy.com" target="_blank">IAcademy</a></li>
+      <li><a href="https://astropalo.com" target="_blank">Astropalo</a></li>
+      <li><a href="https://cibercontratacion.com" target="_blank">CiberContratacion</a></li>
+    </ul>
+  </nav>
+  <nav class="pie-col" aria-label="Open source">
+    <h3 class="mono">Open source</h3>
+    <ul>
+      <li><a href="https://pedri77.github.io/diversidad-climatica/" target="_blank">La diversidad climática</a></li>
+      <li><a href="https://pedri77.github.io/dentro-del-molino/" target="_blank">Dentro del Molino</a></li>
+      <li><a href="https://pedri77.github.io/personaje-estirable/" target="_blank">Personaje Estirable</a></li>
+      <li><a href="https://www.youtube.com/playlist?list=PLKzUzZp5rK5o" target="_blank">Construido con IA</a></li>
+      <li><a href="#oss">All projects &darr;</a></li>
+    </ul>
+  </nav>
+  <nav class="pie-col" aria-label="Contact">
+    <h3 class="mono">Contact</h3>
+    <ul>
+      <li><a href="mailto:info@iacedemy.com">Email</a></li>
+      <li><a href="https://www.linkedin.com/in/david-moya-b3a77547" target="_blank">LinkedIn</a></li>
+      <li><a href="https://pedri77.github.io/riskitera-pitch-deck/" target="_blank">Pitch deck</a></li>
+      <li><a href="https://buymeacoffee.com/pedri77" target="_blank">Buy me a coffee</a></li>
+    </ul>
+  </nav>
 </div>
-<div class="footer-projects mono">
-  <a href="https://iacedemy.com" target="_blank">IAcademy</a>
-  <a href="https://astropalo.com" target="_blank">Astropalo</a>
-  <a href="https://www.youtube.com/playlist?list=PLKzUzZp5rK5o" target="_blank">Construido con IA</a>
-  <a href="https://cibercontratacion.com" target="_blank">CiberContratacion</a>
-  <a href="https://www.youtube.com/@cibercuriosos" target="_blank">Cibercuriosos</a>
-  <a href="https://autonomousdesing.com" target="_blank">Autonomous Design</a>
+<div class="pie-wordmark" id="pie-wordmark" aria-hidden="true"><span>p</span><span>e</span><span>d</span><span>r</span><span>i</span><span>7</span><span>7</span></div>
+<div class="pie-barra">
+  <span>&copy; 2026 David Moya García &middot; <a href="https://riskitera.com" target="_blank">Riskitera</a></span>
+  <span class="mono">Built with precision in ES</span>
 </div>
 </footer>
 
@@ -637,6 +688,43 @@ document.querySelectorAll('.projects-grid, .oss-grid').forEach(function(grid) {
     type(line(e[0]), e[1], e[0], next);
   }
   next();
+})();
+
+// Cierre: trazos de la franja CTA al entrar y wordmark del pie (patrón de web-cinematica).
+// Un solo rAF que solo trabaja mientras el pie está en pantalla; con movimiento reducido,
+// las letras quedan en su sitio y solo responde el brillo al puntero.
+(function () {
+  var cta = document.querySelector('.cierre-cta');
+  if (cta) new IntersectionObserver(function (e, o) { if (e[0].isIntersecting) { cta.classList.add('dentro'); o.disconnect(); } }, {threshold: .35}).observe(cta);
+  var wm = document.getElementById('pie-wordmark');
+  if (!wm) return;
+  var letras = [].slice.call(wm.children);
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var clamp = function (v) { return Math.max(0, Math.min(1, v)); };
+  var tramo = function (v, a, b) { return clamp((v - a) / (b - a)); };
+  var ease = function (t) { return 1 - Math.pow(1 - t, 3); };
+  var visible = false, raf = 0, px = -1e4, py = -1e4;
+  function pintar() {
+    raf = 0;
+    var r = wm.getBoundingClientRect(), vh = innerHeight;
+    // p: 0 cuando el wordmark asoma por abajo, 1 cuando se ve entero.
+    var p = clamp((vh - r.top) / Math.max(1, r.height * 1.6));
+    letras.forEach(function (el, i) {
+      var k = reduced ? 1 : ease(tramo(p, .05 + i * .07, .45 + i * .07));
+      el.style.transform = 'translate3d(0,' + ((1 - k) * 70).toFixed(2) + '%,0)';
+      el.style.opacity = (0.15 + k * 0.85).toFixed(3);
+      var lr = el.getBoundingClientRect();
+      var d = Math.hypot(lr.left + lr.width / 2 - px, lr.top + lr.height * .45 - py);
+      el.style.setProperty('--luz', clamp(1 - d / 380).toFixed(3));
+    });
+  }
+  function pedir() { if (visible && !raf) raf = requestAnimationFrame(pintar); }
+  new IntersectionObserver(function (e) { visible = e[0].isIntersecting; pedir(); }).observe(wm);
+  addEventListener('scroll', pedir, {passive: true});
+  addEventListener('resize', pedir);
+  addEventListener('pointermove', function (e) { px = e.clientX; py = e.clientY; pedir(); }, {passive: true});
+  document.addEventListener('pointerleave', function () { px = py = -1e4; pedir(); });
+  pintar();
 })();
 </script>
 </body>
