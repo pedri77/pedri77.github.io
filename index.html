@@ -87,6 +87,9 @@ a{color:inherit;text-decoration:none}
   *,*::before,*::after{animation-duration:0s!important;transition-duration:0s!important}
 }
 
+/* Estela de fluido del ratón (assets/fluido.js) */
+.fluido{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:55;mix-blend-mode:screen}
+
 /* Scanlines */
 .scanlines{position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.015;background-image:repeating-linear-gradient(0deg,transparent,transparent 1px,rgba(255,255,255,.015) 1px,rgba(255,255,255,.015) 2px);background-size:100% 2px}
 
@@ -732,5 +735,6 @@ document.querySelectorAll('.projects-grid, .oss-grid').forEach(function(grid) {
   pintar();
 })();
 </script>
+<script src="assets/fluido.js" defer></script>
 </body>
 </html>
