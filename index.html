@@ -59,6 +59,7 @@
 .pie-col ul{list-style:none;display:grid;gap:.7rem}
 .pie-col a{font-size:.875rem;color:rgba(226,232,240,.75);transition:color .2s}
 .pie-col a:hover{color:var(--cyan)}
+.pie-col a.pie-todos{color:rgba(6,182,212,.8)}
 .pie-wordmark{position:relative;max-width:80rem;margin:0 auto;padding:0 1rem;font-family:'Inter Tight','IBM Plex Sans',sans-serif;font-weight:700;font-size:clamp(5rem,23vw,21rem);line-height:.78;letter-spacing:-.05em;text-align:center;white-space:nowrap;user-select:none;height:.62em;overflow:hidden}
 .pie-wordmark span{display:inline-block;--luz:0;background-image:linear-gradient(to bottom,rgba(6,182,212,calc(var(--luz)*.6)),transparent 80%),linear-gradient(to bottom,rgba(226,232,240,.085),transparent 80%);-webkit-background-clip:text;background-clip:text;color:transparent;will-change:transform}
 .pie-barra{border-top:1px solid rgba(30,45,74,.35);max-width:72rem;margin:0 auto;padding:1.4rem 1.5rem 1.6rem;display:flex;justify-content:space-between;gap:1rem;font-size:.75rem;color:rgba(148,163,184,.55)}
@@ -426,33 +427,13 @@ a{color:inherit;text-decoration:none}
   <nav class="pie-col" aria-label="Open source">
     <h3 class="mono">Open source</h3>
     <ul>
-      <li><a href="https://pedri77.github.io/un-dia-en-el-hielo/" target="_blank">Un día en el hielo</a></li>
-      <li><a href="https://pedri77.github.io/los-cosechadores/" target="_blank">Los cosechadores, de cerca</a></li>
-      <li><a href="https://pedri77.github.io/ciberdelito-espana/" target="_blank">El ciberdelito en España, diez años después</a></li>
-      <li><a href="https://pedri77.github.io/la-mitad-en-casa/" target="_blank">Uno de cada dos sigue en casa</a></li>
-      <li><a href="https://pedri77.github.io/turno-de-noche/" target="_blank">Turno de noche en el SOC</a></li>
-      <li><a href="https://pedri77.github.io/primer-agente-ia/" target="_blank">Tu primer agente de IA en la empresa</a></li>
-      <li><a href="https://pedri77.github.io/alarmas-falsas/" target="_blank">¿Cuántas alarmas son mentira?</a></li>
-      <li><a href="https://pedri77.github.io/lovecraft-abismo/" target="_blank">Descenso a R’lyeh</a></li>
-      <li><a href="https://pedri77.github.io/sherlock-tablero/" target="_blank">El tablero de Baker Street</a></li>
-      <li><a href="https://pedri77.github.io/dracula-diario/" target="_blank">Drácula, día a día</a></li>
-      <li><a href="https://pedri77.github.io/peliculas-abiertas/" target="_blank">Películas abiertas</a></li>
-      <li><a href="https://pedri77.github.io/atlas-espacial/" target="_blank">Atlas espacial</a></li>
-      <li><a href="https://pedri77.github.io/museo-infinito/" target="_blank">Museo infinito</a></li>
-      <li><a href="https://pedri77.github.io/expediente-scp/" target="_blank">Expediente SCP</a></li>
-      <li><a href="https://pedri77.github.io/winsor-mccay/" target="_blank">Winsor McCay</a></li>
-      <li><a href="https://pedri77.github.io/bestiario-medieval/" target="_blank">Bestiario medieval</a></li>
-      <li><a href="https://pedri77.github.io/haeckel-pokedex/" target="_blank">Pokédex de Haeckel</a></li>
-      <li><a href="https://pedri77.github.io/dominio-publico-2027/" target="_blank">Dominio público 2027</a></li>
-      <li><a href="https://pedri77.github.io/bestiario-yokai/" target="_blank">Bestiario yokai</a></li>
-      <li><a href="https://pedri77.github.io/heroes-dominio-publico/" target="_blank">Héroes de dominio público</a></li>
-      <li><a href="https://pedri77.github.io/archipielago-cuerpo/" target="_blank">Archipiélago del cuerpo</a></li>
       <li><a href="https://pedri77.github.io/torre-osi/" target="_blank">La torre OSI</a></li>
-      <li><a href="https://pedri77.github.io/diversidad-climatica/" target="_blank">La diversidad climática</a></li>
-      <li><a href="https://pedri77.github.io/dentro-del-molino/" target="_blank">Dentro del Molino</a></li>
-      <li><a href="https://pedri77.github.io/personaje-estirable/" target="_blank">Personaje Estirable</a></li>
-      <li><a href="https://www.youtube.com/playlist?list=PLKzUzZp5rK5o" target="_blank">Construido con IA</a></li>
-      <li><a href="#oss">All projects &darr;</a></li>
+      <li><a href="https://pedri77.github.io/archipielago-cuerpo/" target="_blank">Archipiélago del cuerpo</a></li>
+      <li><a href="https://pedri77.github.io/un-dia-en-el-hielo/" target="_blank">Un día en el hielo</a></li>
+      <li><a href="https://pedri77.github.io/turno-de-noche/" target="_blank">Turno de noche en el SOC</a></li>
+      <li><a href="https://pedri77.github.io/dracula-diario/" target="_blank">Drácula, día a día</a></li>
+      <li><a href="https://pedri77.github.io/museo-infinito/" target="_blank">Museo infinito</a></li>
+      <li><a href="#oss" class="pie-todos">All projects &darr;</a></li>
     </ul>
   </nav>
   <nav class="pie-col" aria-label="Contact">
@@ -555,6 +536,7 @@ function renderCards(data, containerId) {
 }
 renderCards(PROJECTS, 'projects-grid');
 renderCards(OSS, 'oss-grid');
+document.querySelectorAll('.pie-todos').forEach(function(a){ a.innerHTML = 'All ' + OSS.length + ' projects &darr;'; });
 
 // Scroll reveal
 var obs = new IntersectionObserver(function(entries) {
