@@ -25,6 +25,8 @@ if (!chromium) throw new Error('No encuentro playwright-core');
 const {proyectos, abiertas} = JSON.parse(readFileSync(join(raiz, 'datos/proyectos.json'), 'utf8'));
 const vivos = proyectos.filter((p) => p.status === 'live');
 const dominios = vivos.filter((p) => p.url && !/^(youtube\.com|github\.com)/.test(p.url)).map((p) => p.url);
+// Sin subdominios de otro dominio de la lista (airadar.iacedemy.com) para que quepan en una línea.
+const principales = dominios.filter((d) => !dominios.some((o) => o !== d && d.endsWith('.' + o)));
 const cifra = (n, t) => `<div><b>${n}</b><span>${t}</span></div>`;
 const fuentes = pathToFileURL(join(raiz, 'assets/fonts')).href;
 
@@ -48,7 +50,7 @@ h1 em{font-style:normal;color:#06b6d4}
 <h1>David Moya <em>García</em></h1>
 <p class="lema">Ciberseguridad e IA, y webs de divulgación con datos abiertos y material de dominio público.</p>
 <div class="cifras">${cifra(proyectos.length + abiertas.length, 'proyectos')}${cifra(vivos.length, 'en producción')}${cifra(abiertas.length, 'webs abiertas')}</div>
-<p class="dom"><i></i>${dominios.slice(0, 5).join('&nbsp;&nbsp;&nbsp;')}</p>
+<p class="dom"><i></i>${principales.slice(0, 5).join('&nbsp;&nbsp;&nbsp;')}</p>
 </body></html>`;
 
 const tmp = join(raiz, '.og-tmp.html');
