@@ -1,33 +1,6 @@
 {
  "proyectos": [
   {
-   "name": "Riskitera",
-   "featured": true,
-   "img": "assets/screens/riskitera.webp",
-   "desc": "Plataforma GRC/SOC/CTI B2B para enterprises reguladas. Multi-tenant, ENS Alto, agentes IA self-hosted.",
-   "color": "var(--cyan)",
-   "status": "live",
-   "statusLabel": "En producción",
-   "tags": [
-    "FastAPI",
-    "Next.js",
-    "Supabase",
-    "LangGraph",
-    "ENS Alto"
-   ],
-   "url": "riskitera.com",
-   "links": [
-    {
-     "label": "Web",
-     "url": "https://riskitera.com"
-    },
-    {
-     "label": "Demo",
-     "url": "https://demo.riskitera.com"
-    }
-   ]
-  },
-  {
    "name": "MalwareIntel",
    "featured": true,
    "img": "assets/screens/malwareintel.webp",
@@ -119,7 +92,8 @@
      "label": "Web",
      "url": "https://astropalo.com"
     }
-   ]
+   ],
+   "featured": true
   },
   {
    "name": "CiberContratacion",
@@ -140,7 +114,8 @@
      "label": "Web",
      "url": "https://cibercontratacion.com"
     }
-   ]
+   ],
+   "featured": true
   },
   {
    "name": "AI Radar",
@@ -160,7 +135,8 @@
      "label": "Web",
      "url": "https://airadar.iacedemy.com"
     }
-   ]
+   ],
+   "featured": true
   },
   {
    "name": "st4rtup.com",
