@@ -29,6 +29,7 @@ RAIZ = Path(__file__).resolve().parent.parent
 SITIO = "https://pedri77.github.io/"
 DATOS = json.loads((RAIZ / "datos/proyectos.json").read_text(encoding="utf-8"))
 PROYECTOS, ABIERTAS = DATOS["proyectos"], DATOS["abiertas"]
+MESES = ["ene.", "feb.", "mar.", "abr.", "may.", "jun.", "jul.", "ago.", "sep.", "oct.", "nov.", "dic."]
 SERIES = [("todas", "Todas"), ("cultura", "Cultura y dominio público"), ("ciber", "Ciberseguridad"), ("ciencia", "Ciencia y datos"), ("ia", "IA")]
 
 GH_ICON = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#i-gh"/></svg>'
@@ -76,6 +77,9 @@ def tarjeta(p: dict, i: int) -> str:
         w, h = tamano(p["img"])
         partes.append(f'<div class="card-media"><img src="{p["img"]}" alt="Captura de {html.escape(p["name"])}" width="{w}" height="{h}" loading="lazy" decoding="async"/></div>')
     partes.append(f'<div class="project-header"><h3 class="mono project-name" style="color:{p["color"]}">{p["name"]}</h3><span class="mono project-status status-{p["status"]}">{p["statusLabel"]}</span></div>')
+    if p.get("fecha"):
+        a, m, _ = p["fecha"].split("-")
+        partes.append(f'<time class="mono project-fecha" datetime="{p["fecha"]}">{MESES[int(m) - 1]} {a}</time>')
     partes.append(f'<p class="project-desc">{p["desc"]}</p>')
     if p.get("url"):
         partes.append(f'<a href="https://{p["url"]}" target="_blank" rel="noopener" class="mono project-url">{p["url"]}</a>')
@@ -132,7 +136,9 @@ def main() -> None:
     f = RAIZ / "index.html"
     t = f.read_text(encoding="utf-8")
     t = bloque(t, "proyectos", "\n" + "\n".join(tarjeta(p, i) for i, p in enumerate(PROYECTOS)) + "\n")
-    t = bloque(t, "abiertas", "\n" + "\n".join(tarjeta(p, i) for i, p in enumerate(ABIERTAS)) + "\n")
+    # Primero las grandes, en el orden del JSON; después el resto, de la más nueva a la más antigua.
+    orden = [p for p in ABIERTAS if p.get("featured")] + sorted((p for p in ABIERTAS if not p.get("featured")), key=lambda p: p.get("fecha") or "", reverse=True)
+    t = bloque(t, "abiertas", "\n" + "\n".join(tarjeta(p, i) for i, p in enumerate(orden)) + "\n")
     t = bloque(t, "series", series())
     t = bloque(t, "jsonld", "\n" + json_ld() + "\n")
     t = bloque(t, "pie", f"Las {c['webs']} webs &darr;")
