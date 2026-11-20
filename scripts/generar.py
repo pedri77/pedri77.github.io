@@ -117,7 +117,7 @@ def demo(p: dict) -> str | None:
 def json_ld() -> str:
     obras = [{"@type": "ListItem", "position": i + 1, "url": u, "name": p["name"]} for i, (p, u) in enumerate((p, demo(p)) for p in ABIERTAS) if u]
     datos = [
-        {"@context": "https://schema.org", "@type": "Person", "name": "David Moya García", "url": SITIO, "jobTitle": "Fundador y CTO de Riskitera",
+        {"@context": "https://schema.org", "@type": "Person", "name": "David Moya García", "url": SITIO,
          "sameAs": ["https://github.com/pedri77", "https://www.linkedin.com/in/david-moya-b3a77547"]},
         {"@context": "https://schema.org", "@type": "ItemList", "name": "Webs y herramientas abiertas", "itemListElement": obras},
     ]
