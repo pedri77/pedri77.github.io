@@ -28,11 +28,27 @@ Sitio portfolio personal desplegado en GitHub Pages. Presenta proyectos de ciber
 
 ```
 pedri77.github.io/
-├── index.html          # Pagina principal del portfolio
-└── 404.html            # Pagina de error personalizada
+├── index.html          # Pagina principal (tarjetas generadas en estatico)
+├── 404.html            # Pagina de error personalizada
+├── datos/proyectos.json  # Proyectos y webs abiertas
+├── scripts/generar.py  # Vuelca los datos en index.html, sitemap.xml y robots.txt
+├── scripts/og.mjs      # Genera assets/og.jpg
+├── sitemap.xml
+└── robots.txt
 ```
 
 ---
+
+## `> cat datos.md`
+
+Las tarjetas no se pintan con JavaScript: están escritas en `index.html` para que los buscadores las lean. Los datos viven en `datos/proyectos.json` y se vuelcan con dos scripts:
+
+```bash
+uv run scripts/generar.py   # tarjetas, series, cifras, JSON-LD, sitemap.xml y robots.txt; reduce capturas grandes
+node scripts/og.mjs         # assets/og.jpg, la imagen al compartir (necesita playwright-core y Chrome)
+```
+
+Para añadir una web: su objeto en `abiertas` (con `serie`: cultura, ciber, ciencia o ia; sin `featured`), el banner en `assets/screens/` y volver a ejecutar `generar.py`. No se edita a mano nada entre los marcadores `<!-- gen:… -->`.
 
 ## `> cat deploy.md`
 
