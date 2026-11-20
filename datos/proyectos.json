@@ -31,7 +31,7 @@
    "name": "MalwareIntel",
    "featured": true,
    "img": "assets/screens/malwareintel.webp",
-   "desc": "Plataforma CTI gratuita: 4.300+ familias de malware, 1.8M+ IOCs, 3.632 reglas de detección y 214 actores de amenaza. Soberanía EU.",
+   "desc": "Plataforma CTI gratuita: 4.400+ familias de malware, 2,6M+ IOCs, 3.632 reglas de detección y 218 actores de amenaza. Soberanía UE.",
    "color": "var(--purple)",
    "status": "live",
    "statusLabel": "En producción",
@@ -315,7 +315,8 @@
      "label": "Demo",
      "url": "https://pedri77.github.io/dentro-de-claude/"
     }
-   ]
+   ],
+   "fecha": "2026-11-02"
   },
   {
    "serie": "ciber",
@@ -346,7 +347,8 @@
      "label": "Demo",
      "url": "https://pedri77.github.io/turno-de-noche/"
     }
-   ]
+   ],
+   "fecha": "2026-11-17"
   },
   {
    "serie": "ciber",
@@ -377,7 +379,8 @@
      "label": "Demo",
      "url": "https://pedri77.github.io/torre-osi/"
     }
-   ]
+   ],
+   "fecha": "2026-11-11"
   },
   {
    "serie": "cultura",
@@ -408,7 +411,8 @@
      "label": "Demo",
      "url": "https://pedri77.github.io/piranesi-carceri/"
     }
-   ]
+   ],
+   "fecha": "2026-11-19"
   },
   {
    "serie": "cultura",
@@ -439,7 +443,8 @@
      "label": "Demo",
      "url": "https://pedri77.github.io/verne-80-dias/"
     }
-   ]
+   ],
+   "fecha": "2026-11-19"
   },
   {
    "serie": "ciencia",
@@ -470,7 +475,8 @@
      "label": "Demo",
      "url": "https://pedri77.github.io/la-mitad-en-casa/"
     }
-   ]
+   ],
+   "fecha": "2026-11-18"
   },
   {
    "serie": "ia",
@@ -497,7 +503,8 @@
      "label": "Demo",
      "url": "https://pedri77.github.io/personaje-estirable/"
     }
-   ]
+   ],
+   "fecha": "2026-11-02"
   },
   {
    "serie": "ciencia",
@@ -524,7 +531,8 @@
      "label": "Demo",
      "url": "https://pedri77.github.io/dentro-del-molino/"
     }
-   ]
+   ],
+   "fecha": "2026-11-02"
   },
   {
    "serie": "ciencia",
@@ -552,7 +560,8 @@
      "label": "Demo",
      "url": "https://pedri77.github.io/diversidad-climatica/"
     }
-   ]
+   ],
+   "fecha": "2026-11-02"
   },
   {
    "serie": "ia",
@@ -579,7 +588,8 @@
      "label": "Demo",
      "url": "https://pedri77.github.io/iacademy-cinematica/"
     }
-   ]
+   ],
+   "fecha": "2026-11-02"
   },
   {
    "serie": "cultura",
@@ -608,7 +618,8 @@
      "label": "Demo",
      "url": "https://pedri77.github.io/un-dia-en-el-hielo/"
     }
-   ]
+   ],
+   "fecha": "2026-11-17"
   },
   {
    "serie": "cultura",
@@ -636,7 +647,8 @@
      "label": "Demo",
      "url": "https://pedri77.github.io/los-cosechadores/"
     }
-   ]
+   ],
+   "fecha": "2026-11-18"
   },
   {
    "serie": "ciber",
@@ -665,7 +677,8 @@
      "label": "Demo",
      "url": "https://pedri77.github.io/ciberdelito-espana/"
     }
-   ]
+   ],
+   "fecha": "2026-11-17"
   },
   {
    "serie": "ia",
@@ -694,7 +707,8 @@
      "label": "Demo",
      "url": "https://pedri77.github.io/primer-agente-ia/"
     }
-   ]
+   ],
+   "fecha": "2026-11-18"
   },
   {
    "serie": "ciber",
@@ -723,7 +737,8 @@
      "label": "Demo",
      "url": "https://pedri77.github.io/alarmas-falsas/"
     }
-   ]
+   ],
+   "fecha": "2026-11-17"
   },
   {
    "serie": "ciber",
@@ -752,7 +767,8 @@
      "label": "Demo",
      "url": "https://pedri77.github.io/cuanto-tarda-contrasena/"
     }
-   ]
+   ],
+   "fecha": "2026-11-18"
   },
   {
    "serie": "cultura",
@@ -782,7 +798,8 @@
      "label": "Demo",
      "url": "https://pedri77.github.io/lovecraft-abismo/"
     }
-   ]
+   ],
+   "fecha": "2026-11-17"
   },
   {
    "serie": "cultura",
@@ -812,7 +829,8 @@
      "label": "Demo",
      "url": "https://pedri77.github.io/sherlock-tablero/"
     }
-   ]
+   ],
+   "fecha": "2026-11-17"
   },
   {
    "serie": "cultura",
@@ -842,7 +860,8 @@
      "label": "Demo",
      "url": "https://pedri77.github.io/dracula-diario/"
     }
-   ]
+   ],
+   "fecha": "2026-11-17"
   },
   {
    "serie": "cultura",
@@ -871,7 +890,8 @@
      "label": "Demo",
      "url": "https://pedri77.github.io/muybridge-proyector/"
     }
-   ]
+   ],
+   "fecha": "2026-11-18"
   },
   {
    "serie": "cultura",
@@ -900,7 +920,8 @@
      "label": "Demo",
      "url": "https://pedri77.github.io/quijote-dore/"
     }
-   ]
+   ],
+   "fecha": "2026-11-18"
   },
   {
    "serie": "cultura",
@@ -929,7 +950,8 @@
      "label": "Demo",
      "url": "https://pedri77.github.io/audubon-cantos/"
     }
-   ]
+   ],
+   "fecha": "2026-11-18"
   },
   {
    "serie": "cultura",
@@ -958,7 +980,8 @@
      "label": "Demo",
      "url": "https://pedri77.github.io/darwin-beagle/"
     }
-   ]
+   ],
+   "fecha": "2026-11-19"
   },
   {
    "serie": "cultura",
@@ -987,7 +1010,8 @@
      "label": "Demo",
      "url": "https://pedri77.github.io/mapas-mundo/"
     }
-   ]
+   ],
+   "fecha": "2026-11-20"
   },
   {
    "serie": "cultura",
@@ -1016,7 +1040,8 @@
      "label": "Demo",
      "url": "https://pedri77.github.io/peliculas-abiertas/"
     }
-   ]
+   ],
+   "fecha": "2026-11-17"
   },
   {
    "serie": "ciencia",
@@ -1045,7 +1070,8 @@
      "label": "Demo",
      "url": "https://pedri77.github.io/atlas-espacial/"
     }
-   ]
+   ],
+   "fecha": "2026-11-16"
   },
   {
    "serie": "cultura",
@@ -1073,7 +1099,8 @@
      "label": "Demo",
      "url": "https://pedri77.github.io/museo-infinito/"
     }
-   ]
+   ],
+   "fecha": "2026-11-16"
   },
   {
    "serie": "cultura",
@@ -1101,7 +1128,8 @@
      "label": "Demo",
      "url": "https://pedri77.github.io/expediente-scp/"
     }
-   ]
+   ],
+   "fecha": "2026-11-16"
   },
   {
    "serie": "cultura",
@@ -1130,7 +1158,8 @@
      "label": "Demo",
      "url": "https://pedri77.github.io/winsor-mccay/"
     }
-   ]
+   ],
+   "fecha": "2026-11-16"
   },
   {
    "serie": "cultura",
@@ -1159,7 +1188,8 @@
      "label": "Demo",
      "url": "https://pedri77.github.io/bestiario-medieval/"
     }
-   ]
+   ],
+   "fecha": "2026-11-16"
   },
   {
    "serie": "cultura",
@@ -1189,7 +1219,8 @@
      "label": "Demo",
      "url": "https://pedri77.github.io/haeckel-pokedex/"
     }
-   ]
+   ],
+   "fecha": "2026-11-16"
   },
   {
    "serie": "cultura",
@@ -1218,7 +1249,8 @@
      "label": "Demo",
      "url": "https://pedri77.github.io/dominio-publico-2027/"
     }
-   ]
+   ],
+   "fecha": "2026-11-16"
   },
   {
    "serie": "cultura",
@@ -1247,7 +1279,8 @@
      "label": "Demo",
      "url": "https://pedri77.github.io/bestiario-yokai/"
     }
-   ]
+   ],
+   "fecha": "2026-11-16"
   },
   {
    "serie": "cultura",
@@ -1276,7 +1309,8 @@
      "label": "Demo",
      "url": "https://pedri77.github.io/heroes-dominio-publico/"
     }
-   ]
+   ],
+   "fecha": "2026-11-16"
   },
   {
    "serie": "ciencia",
@@ -1306,7 +1340,8 @@
      "label": "Demo",
      "url": "https://pedri77.github.io/archipielago-cuerpo/"
     }
-   ]
+   ],
+   "fecha": "2026-11-12"
   },
   {
    "serie": "ciber",
@@ -1348,7 +1383,8 @@
      "label": "EDR",
      "url": "https://pedri77.github.io/vulnerabilidades-capas-osi/figuras/edr/"
     }
-   ]
+   ],
+   "fecha": "2026-11-03"
   },
   {
    "serie": "ciber",
@@ -1374,7 +1410,8 @@
      "label": "Demo",
      "url": "https://pedri77.github.io/edr-visual-app/"
     }
-   ]
+   ],
+   "fecha": "2026-04-21"
   },
   {
    "serie": "ciber",
@@ -1400,7 +1437,8 @@
      "label": "Demo",
      "url": "https://pedri77.github.io/sase-visual-app/"
     }
-   ]
+   ],
+   "fecha": "2026-04-21"
   },
   {
    "serie": "ciber",
@@ -1422,7 +1460,8 @@
      "url": "https://github.com/pedri77/kev_dash_project",
      "icon": "gh"
     }
-   ]
+   ],
+   "fecha": "2025-11-17"
   },
   {
    "serie": "ciber",
@@ -1444,7 +1483,8 @@
      "url": "https://github.com/pedri77/osm-ioc-hub",
      "icon": "gh"
     }
-   ]
+   ],
+   "fecha": "2025-11-04"
   },
   {
    "serie": "ciber",
@@ -1465,7 +1505,8 @@
      "url": "https://github.com/pedri77/ruta-ciberseguridad-e-IA",
      "icon": "gh"
     }
-   ]
+   ],
+   "fecha": "2025-11-04"
   },
   {
    "serie": "ciber",
@@ -1487,7 +1528,8 @@
      "url": "https://github.com/pedri77/providors_high_ENS",
      "icon": "gh"
     }
-   ]
+   ],
+   "fecha": "2025-11-05"
   }
  ]
 }
