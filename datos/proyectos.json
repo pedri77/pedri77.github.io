@@ -185,7 +185,7 @@
   {
    "name": "Autonomous Design",
    "img": "assets/screens/autonomousdesign.webp",
-   "desc": "Estudio de producto digital con IA.",
+   "desc": "Estudio de producto digital con IA: describes el proyecto y en 48 horas recibes una propuesta con precio, plan de sprints, riesgos y contrato. MVP, plataformas y automatización con agentes de IA, con infraestructura en la UE.",
    "color": "var(--blue)",
    "status": "live",
    "statusLabel": "En producción",
@@ -1388,16 +1388,17 @@
   },
   {
    "serie": "ciber",
-   "name": "EDR Visual App",
+   "name": "EDR/XDR Decision Studio",
    "img": "assets/screens/oss-edrvisual.webp",
-   "desc": "Visualizador interactivo de Endpoint Detection & Response para demos y formación.",
+   "desc": "Compara 26 EDR/XDR del mercado en Windows, Linux y macOS: telemetría del proyecto abierto EDR-Telemetry, posición en Gartner y Forrester, CVEs e incidentes públicos. Web estática, sin dependencias.",
    "color": "var(--green)",
    "status": "live",
    "statusLabel": "Pública",
    "tags": [
-    "React",
+    "JavaScript",
     "Visualización",
-    "EDR"
+    "EDR",
+    "Telemetría"
    ],
    "url": "github.com/pedri77/edr-visual-app",
    "links": [
@@ -1415,16 +1416,17 @@
   },
   {
    "serie": "ciber",
-   "name": "SASE Visual App",
+   "name": "SASE Decision Studio",
    "img": "assets/screens/oss-sasevisual.webp",
-   "desc": "Visualizador interactivo de arquitectura SASE para demos y formación.",
+   "desc": "Puntuación visual, matriz de riesgos, seguimiento de CVEs e informe ejecutivo en PDF para comparar los SASE/SSE de Zscaler, Netskope, Palo Alto, Fortinet y Cisco.",
    "color": "var(--cyan)",
    "status": "live",
    "statusLabel": "Pública",
    "tags": [
-    "React",
+    "JavaScript",
     "Visualización",
-    "SASE"
+    "SASE",
+    "Informe PDF"
    ],
    "url": "github.com/pedri77/sase-visual-app",
    "links": [
@@ -1444,13 +1446,13 @@
    "serie": "ciber",
    "name": "KEV Dashboard",
    "img": "assets/screens/oss-kevdashboard.webp",
-   "desc": "Dashboard de CISA Known Exploited Vulnerabilities con Streamlit.",
+   "desc": "Panel de las vulnerabilidades explotadas activamente del catálogo KEV de CISA en los últimos 7 días, con filtros por fabricante y producto y gráficos por fecha de inclusión.",
    "color": "var(--red)",
    "status": "live",
    "statusLabel": "Pública",
    "tags": [
     "Python",
-    "Streamlit",
+    "Plotly Dash",
     "CISA KEV"
    ],
    "url": "github.com/pedri77/kev_dash_project",
@@ -1467,14 +1469,16 @@
    "serie": "ciber",
    "name": "OSM IOC Hub",
    "img": "assets/screens/oss-osmiochub.webp",
-   "desc": "Hub de indicadores de compromiso para operaciones de seguridad.",
+   "desc": "Ingesta y normaliza los IOCs de OpenSourceMalware en SQLite, con una API FastAPI para exportar a CSV, STIX y MISP, interfaz en Streamlit y conector para publicar en MISP.",
    "color": "var(--amber)",
    "status": "live",
    "statusLabel": "Pública",
    "tags": [
     "Python",
+    "FastAPI",
     "IOC",
-    "OSINT"
+    "STIX",
+    "MISP"
    ],
    "url": "github.com/pedri77/osm-ioc-hub",
    "links": [
@@ -1490,7 +1494,7 @@
    "serie": "ciber",
    "name": "Ruta Ciberseguridad e IA",
    "img": "assets/screens/oss-rutaciber.webp",
-   "desc": "Guía de ruta profesional en ciberseguridad e inteligencia artificial.",
+   "desc": "Itinerario de estudio en cuatro niveles para unir ciberseguridad e IA: fundamentos de machine learning con Python, IA aplicada al SOC, modelos y RAG en entornos de seguridad, y certificaciones y comunidad.",
    "color": "var(--purple)",
    "status": "live",
    "statusLabel": "Pública",
@@ -1510,16 +1514,17 @@
   },
   {
    "serie": "ciber",
-   "name": "Proveedores ENS Alto",
+   "name": "Matriz de proveedores MSSP",
    "img": "assets/screens/oss-proveedoresens.webp",
-   "desc": "Directorio de proveedores certificados ENS Alto para administraciones públicas.",
+   "desc": "Cuaderno de Google Colab que genera la matriz de evaluación de proveedores MSSP para un pliego: criterios ponderados de 0 a 5, carga de puntuaciones desde CSV y Excel con la nota final.",
    "color": "var(--blue)",
    "status": "live",
    "statusLabel": "Pública",
    "tags": [
-    "ENS",
-    "Cumplimiento",
-    "Directorio"
+    "Python",
+    "Google Colab",
+    "Contratación",
+    "Excel"
    ],
    "url": "github.com/pedri77/providors_high_ENS",
    "links": [

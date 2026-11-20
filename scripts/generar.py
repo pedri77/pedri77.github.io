@@ -142,6 +142,8 @@ def main() -> None:
     t = bloque(t, "series", series())
     t = bloque(t, "jsonld", "\n" + json_ld() + "\n")
     t = bloque(t, "pie", f"Las {c['webs']} webs &darr;")
+    t = bloque(t, "acc-plataformas", str(c["vivos"]))
+    t = bloque(t, "acc-webs", str(c["webs"]))
     for clave in ("total", "vivos", "webs", "dominios"):
         t = bloque(t, f"cifra-{clave}", f'<div class="mono stat-val" data-count="{c[clave]}">{c[clave]}</div>')
     t, n = re.subn(r"var ESTADO = '[^']*';", f"var ESTADO = '{c['total']} proyectos · {c['vivos']} en producción · soberanía UE';", t)
