@@ -59,9 +59,25 @@ def tamano(img: str) -> tuple[int, int]:
         return im.size
 
 
-def tarjeta(p: dict, i: int) -> str:
+def remates(lista: list[dict]) -> dict[int, list[str]]:
+    """Clases para que la última fila de tarjetas normales no deje hueco.
+
+    En escritorio caben 3 normales por fila (2 de 6 columnas) y en tableta 2 (3 de 6). Si sobran 2 en escritorio,
+    pasan a media fila (fin-3); si sobra 1, a fila entera (fin-6). En tableta, la que queda sola ocupa la fila (t-6).
+    """
+    normales = [id(p) for p in lista if not p.get("featured")]
+    clases: dict[int, list[str]] = {}
+    resto = len(normales) % 3
+    for n in normales[len(normales) - resto:] if resto else []:
+        clases.setdefault(n, []).append("fin-3" if resto == 2 else "fin-6")
+    if len(normales) % 2:
+        clases.setdefault(normales[-1], []).append("t-6")
+    return clases
+
+
+def tarjeta(p: dict, i: int, extra: list[str] | None = None) -> str:
     """Mismo marcado que pintaba renderCards() en el navegador."""
-    clases = ["project-card", "reveal"]
+    clases = ["project-card", "reveal", *(extra or [])]
     if p.get("featured"):
         clases.append("featured")
     if p.get("serie") and not p.get("featured"):
@@ -90,6 +106,16 @@ def tarjeta(p: dict, i: int) -> str:
     partes.append('<div class="card-shine" aria-hidden="true"></div><div class="card-spot" aria-hidden="true"></div>' + ('<div class="card-beam" aria-hidden="true"></div>' if p.get("featured") else ""))
     partes.append("</article>")
     return "".join(partes)
+
+
+def cerrados() -> str:
+    items = []
+    for p in PROYECTOS:
+        if p["status"] != "archived":
+            continue
+        nombre = f'<a href="https://{p["url"]}" target="_blank" rel="noopener">{p["name"]}</a>' if p.get("url") else p["name"]
+        items.append(f"{nombre}: {p['desc']}")
+    return f'<p class="cerrados reveal"><span class="mono">Cerrados</span> {" · ".join(items)}</p>' if items else ""
 
 
 def cifras() -> dict:
@@ -135,7 +161,11 @@ def main() -> None:
     c = cifras()
     f = RAIZ / "index.html"
     t = f.read_text(encoding="utf-8")
-    t = bloque(t, "proyectos", "\n" + "\n".join(tarjeta(p, i) for i, p in enumerate(PROYECTOS)) + "\n")
+    # Los cerrados no ocupan sitio en la rejilla: van en una línea aparte debajo.
+    activos = [p for p in PROYECTOS if p["status"] != "archived"]
+    fin = remates(activos)
+    t = bloque(t, "proyectos", "\n" + "\n".join(tarjeta(p, i, fin.get(id(p))) for i, p in enumerate(activos)) + "\n")
+    t = bloque(t, "cerrados", cerrados())
     # Primero las grandes, en el orden del JSON; después el resto, de la más nueva a la más antigua.
     orden = [p for p in ABIERTAS if p.get("featured")] + sorted((p for p in ABIERTAS if not p.get("featured")), key=lambda p: p.get("fecha") or "", reverse=True)
     t = bloque(t, "abiertas", "\n" + "\n".join(tarjeta(p, i) for i, p in enumerate(orden)) + "\n")

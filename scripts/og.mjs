@@ -31,8 +31,7 @@ const cifra = (n, t) => `<div><b>${n}</b><span>${t}</span></div>`;
 const fuentes = pathToFileURL(join(raiz, 'assets/fonts')).href;
 
 const html = `<!doctype html><html lang="es"><meta charset="utf-8"><style>
-@font-face{font-family:JB;font-weight:700;src:url('${fuentes}/JetBrainsMono-700-latin.woff2')}
-@font-face{font-family:JB;font-weight:400;src:url('${fuentes}/JetBrainsMono-400-latin.woff2')}
+@font-face{font-family:JB;font-weight:400 700;src:url('${fuentes}/JetBrainsMono-400-latin.woff2')}
 @font-face{font-family:Plex;font-weight:400;src:url('${fuentes}/IBMPlexSans-400-latin.woff2')}
 *{margin:0;box-sizing:border-box}
 body{width:1200px;height:630px;background:radial-gradient(60% 70% at 0% 0%,rgba(6,182,212,.14),transparent 70%),radial-gradient(40% 50% at 100% 100%,rgba(192,132,252,.12),transparent 70%),#060810;color:#e2e8f0;font-family:Plex;padding:72px 84px;display:flex;flex-direction:column}
