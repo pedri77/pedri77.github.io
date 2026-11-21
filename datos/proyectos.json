@@ -96,7 +96,7 @@
    "featured": true
   },
   {
-   "name": "CiberContratacion",
+   "name": "CiberContratación",
    "img": "assets/screens/cibercontratacion.webp",
    "desc": "Inteligencia de ciberseguridad en la contratación pública española: 6.008+ licitaciones, 121 organismos, scoring y threat actors.",
    "color": "var(--lime)",
